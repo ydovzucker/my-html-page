@@ -208,6 +208,9 @@
         </ul>
     </div>
 </div>
+<!-- לחצני ניווט למעבר בין השקופיות -->
+<button id="upBtn" style="position: fixed; top: 10px; right: 50%; transform: translateX(50%); z-index: 1000; padding: 10px 20px;">▲</button>
+<button id="downBtn" style="position: fixed; bottom: 10px; right: 50%; transform: translateX(50%); z-index: 1000; padding: 10px 20px;">▼</button>
 
 <script>
     let slides = document.querySelectorAll('.slide');
@@ -229,7 +232,17 @@
         }
     });
 </script>
+<script>
+document.getElementById('upBtn').addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+});
+
+document.getElementById('downBtn').addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+});
+</script>
 
 </body>
 </html>
-
